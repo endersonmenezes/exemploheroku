@@ -7,7 +7,7 @@ def hello_world():
     numero1 = request.args.get('numero1', None)
     numero2 = request.args.get('numero2', None)
     if numero1 and numero2:
-        resultado = numero1 + numero2
+        resultado = int(numero1) + int(numero2)
     else:
         resultado = "Envie dois numeros para somar."
     return jsonify({'resultado': resultado})
