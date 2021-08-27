@@ -1,10 +1,16 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    numero1 = request.args.get('numero1', None)
+    numero2 = request.args.get('numero2', None)
+    if numero1 and numero2:
+        resultado = numero1 + numero2
+    else:
+        resultado = "Envie dois numeros para somar."
+    return jsonify({'resultado': resultado})
 
 if __name__ == "__main__":
 	app.run(debug=True)
