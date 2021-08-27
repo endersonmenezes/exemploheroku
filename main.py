@@ -6,6 +6,14 @@ app = Flask(__name__)
 def hello_world():
     numero1 = request.args.get('numero1', None)
     numero2 = request.args.get('numero2', None)
+    try:
+        int(numero1)
+    except ValueError:
+        return jsonify({'erro': f'Nao é um valor inteiro o valor digitado. ({numero1})'})
+    try:
+        int(numero2)
+    except ValueError:
+        return jsonify({'erro': f'Nao é um valor inteiro o valor digitado. ({numero1})'})
     if numero1 and numero2:
         resultado = int(numero1) + int(numero2)
     else:
