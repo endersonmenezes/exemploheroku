@@ -23,6 +23,9 @@ def api_calcular():
 @app.route("/")
 def hello_world():
     data = {
+      "nome": "Enderson Menezes",
+      "idade": "25",
+      "cidade": "Marialva/PR",
     }
     return render_template("index.html", data=data)
 
