@@ -4,8 +4,8 @@ app = Flask(__name__)
 
 @app.route("/api/calcular", methods=['GET', 'POST'])
 def api_calcular():
-    numero1 = request.form.get('numero1', 0)
-    numero2 = request.form.get('numero2', 0)
+    numero1 = request.form.get('numero1')
+    numero2 = request.form.get('numero2')
     try:
         int(numero1)
     except ValueError:
